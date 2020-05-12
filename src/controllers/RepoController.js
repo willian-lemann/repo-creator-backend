@@ -3,8 +3,9 @@ const ScrapService = require('../services/RepoService');
 module.exports = {
 
     async scrap(request, response) {
-
-        response.json({ data: 'Preencha os dados no form' });
+        const { password, repositoryName } = request.body;
+        if (password === '' || repositoryName === '')
+            response.json({ data: 'Preencha os dados no form' });
 
         const data = request.body;
 
